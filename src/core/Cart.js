@@ -59,11 +59,13 @@ const Cart = () => {
       <div className="row">
         <div className="col-4">{items.length > 0 ? showItems(items) : noItemsMessage()}</div>
         <div className="col-2"></div>
-        <div className="col-5">
-          <h2 className="mb-4">Order Summary</h2>
-          <hr />
-          <Checkout products={items} setRun={setRun} run={run} />
-        </div>
+        {items.length > 0 && (
+          <div className="col-5">
+            <h2 className="mb-4">Order Summary</h2>
+            <hr />
+            <Checkout products={items} setRun={setRun} run={run} />
+          </div>
+        )}
       </div>
     </Layout>
   );

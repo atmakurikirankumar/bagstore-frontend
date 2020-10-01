@@ -66,7 +66,7 @@ const Signin = (props) => {
           required
         />
       </div>
-      <button className="btn btn-primary">Login</button>
+      <button className="btn btn-primary btn-block">Login</button>
       <p>
         Don't Have an account? <Link to="/signup">Signup Here</Link>
       </p>

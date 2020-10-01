@@ -57,7 +57,9 @@ const Product = (props) => {
         </div>
 
         <div className="col-4">
-          <h4>Related products</h4>
+          <h1 className="jumbotron" style={{ height: "20px", textAlign: "center", margin: 0 }}>
+            Related products
+          </h1>
           {showLoading()}
           {relatedProduct.map((p, i) => (
             <div className="mb-3" key={i}>
