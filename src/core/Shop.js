@@ -169,9 +169,11 @@ const Shop = () => {
             </>
           )}
           {!loading && filteredResults && filteredResults.length <= 0 && (
-            <div className="alert alert-danger col-6">
-              No Products found matching your search criteria. Please refine your search and try
-              again
+            <div className="container card">
+              <h2 className="text-danger">
+                No Products found matching your search criteria. Please refine your search and try
+                again
+              </h2>
             </div>
           )}
           <hr />
