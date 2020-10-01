@@ -61,11 +61,12 @@ const Product = (props) => {
             Related products
           </h1>
           {showLoading()}
-          {relatedProduct.map((p, i) => (
-            <div className="mb-3" key={i}>
-              <Card product={p} />
-            </div>
-          ))}
+          {!loading &&
+            relatedProduct.map((p, i) => (
+              <div className="mb-3" key={i}>
+                <Card product={p} />
+              </div>
+            ))}
         </div>
       </div>
     </Layout>
