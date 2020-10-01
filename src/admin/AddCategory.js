@@ -44,10 +44,11 @@ const AddCategory = () => {
           value={name}
           autoFocus
           id="name"
+          placeholder="Enter Category Name..."
           required
         />
       </div>
-      <button className="btn btn-outline-primary">Create Category</button>
+      <button className="btn btn-block btn-primary">Create Category</button>
     </form>
   );
 
@@ -64,8 +65,8 @@ const AddCategory = () => {
   );
 
   const goBack = () => (
-    <div className="mt-5">
-      <Link to="/admin/dashboard" className="text-warning">
+    <div className="mt-2">
+      <Link to="/admin/dashboard" className="btn btn-secondary btn-block text-white">
         Back to Dashboard
       </Link>
     </div>

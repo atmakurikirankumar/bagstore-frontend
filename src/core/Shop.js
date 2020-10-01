@@ -5,6 +5,7 @@ import Checkbox from "./Checkbox";
 import RadioBox from "./RadioBox";
 import { prices } from "./fixedPrices";
 import { getCategories, getFilteredProducts } from "./apiCore";
+import Spinner from "./Spinner";
 
 const Shop = () => {
   const [myFilters, setMyFilters] = useState({
@@ -17,6 +18,7 @@ const Shop = () => {
   const [skip, setSkip] = useState(0);
   const [size, setSize] = useState(0);
   const [filteredResults, setFilteredResults] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const init = () => {
     getCategories().then((data) => {
@@ -32,9 +34,11 @@ const Shop = () => {
     getFilteredProducts(skip, limit, newFilters).then((data) => {
       if (data.error) {
         setError(data.error);
+        setLoading(false);
       } else {
         setFilteredResults(data.data);
         setSize(data.size);
+        setLoading(false);
         setSkip(0);
       }
     });
@@ -57,6 +61,8 @@ const Shop = () => {
       }
     });
   };
+
+  const showLoading = () => loading && <Spinner />;
 
   const loadMoreButton = () => {
     return (
@@ -139,26 +145,30 @@ const Shop = () => {
         </div>
 
         <div className="col-10">
-          <h2
-            className="mb-4 card display-2"
-            style={{
-              backgroundColor: "grey",
-              color: "white",
-              textAlign: "center",
-              borderRadius: "20px",
-            }}
-          >
-            Products
-          </h2>
-          {filteredResults && filteredResults.length > 0 ? (
-            <div className="row">
-              {filteredResults.map((product, i) => (
-                <div key={i} className="col-3 mb-3">
-                  <Card product={product} />
-                </div>
-              ))}
-            </div>
-          ) : (
+          {showLoading()}
+          {!loading && filteredResults && filteredResults.length > 0 && (
+            <>
+              <h2
+                className="mb-4 card display-2"
+                style={{
+                  backgroundColor: "grey",
+                  color: "white",
+                  textAlign: "center",
+                  borderRadius: "20px",
+                }}
+              >
+                Products
+              </h2>
+              <div className="row">
+                {filteredResults.map((product, i) => (
+                  <div key={i} className="col-3 mb-3">
+                    <Card product={product} />
+                  </div>
+                ))}
+              </div>
+            </>
+          )}
+          {!loading && filteredResults && filteredResults.length <= 0 && (
             <div className="alert alert-danger col-6">
               No Products found matching your search criteria. Please refine your search and try
               again

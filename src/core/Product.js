@@ -57,16 +57,20 @@ const Product = (props) => {
         </div>
 
         <div className="col-4">
-          <h1 className="jumbotron" style={{ height: "20px", textAlign: "center", margin: 0 }}>
-            Related products
-          </h1>
           {showLoading()}
-          {!loading &&
-            relatedProduct.map((p, i) => (
-              <div className="mb-3" key={i}>
-                <Card product={p} />
-              </div>
-            ))}
+
+          {!loading && relatedProduct && relatedProduct.length > 0 && (
+            <>
+              <h1 className="jumbotron" style={{ height: "20px", textAlign: "center", margin: 0 }}>
+                Related products
+              </h1>
+              {relatedProduct.map((p, i) => (
+                <div className="mb-3" key={i}>
+                  <Card product={p} />
+                </div>
+              ))}
+            </>
+          )}
         </div>
       </div>
     </Layout>

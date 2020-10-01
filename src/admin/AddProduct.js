@@ -3,6 +3,7 @@ import Layout from "../core/Layout";
 import { isAuthenticated } from "../auth";
 import { createProduct, getCategories } from "./apiAdmin";
 import Spinner from "../core/Spinner";
+import { Link } from "react-router-dom";
 
 const AddProduct = () => {
   const [values, setValues] = useState({
@@ -84,82 +85,89 @@ const AddProduct = () => {
   };
 
   const addProductForm = () => (
-    <form className="mb-3" onSubmit={clickSubmit}>
-      <h5 className="text-primary">Pick an Image</h5>
-      <div className="form-group">
-        <label className="btn btn-secondary">
-          <input onChange={handleChange("photo")} type="file" name="photo" accept="image/*" />
-        </label>
-      </div>
+    <>
+      <form className="mb-3" onSubmit={clickSubmit}>
+        <div className="form-group">
+          <label className="btn btn-secondary">
+            <h3 className="text-white" style={{ textAlign: "left" }}>
+              Upload Picture
+            </h3>
+            <input onChange={handleChange("photo")} type="file" name="photo" accept="image/*" />
+          </label>
+        </div>
 
-      <div className="form-group">
-        <label className="text-muted">Name</label>
-        <input
-          onChange={handleChange("name")}
-          type="text"
-          className="form-control"
-          value={name}
-          id="name"
-          required
-        />
-      </div>
+        <div className="form-group">
+          <label className="text-muted">Name</label>
+          <input
+            onChange={handleChange("name")}
+            type="text"
+            className="form-control"
+            value={name}
+            id="name"
+            required
+          />
+        </div>
 
-      <div className="form-group">
-        <label className="text-muted">Description</label>
-        <textarea
-          onChange={handleChange("description")}
-          className="form-control"
-          value={description}
-          id="description"
-          required
-        />
-      </div>
+        <div className="form-group">
+          <label className="text-muted">Description</label>
+          <textarea
+            onChange={handleChange("description")}
+            className="form-control"
+            value={description}
+            id="description"
+            required
+          />
+        </div>
 
-      <div className="form-group">
-        <label className="text-muted">Price</label>
-        <input
-          onChange={handleChange("price")}
-          type="number"
-          className="form-control"
-          value={price}
-          id="price"
-          required
-        />
-      </div>
+        <div className="form-group">
+          <label className="text-muted">Price</label>
+          <input
+            onChange={handleChange("price")}
+            type="number"
+            className="form-control"
+            value={price}
+            id="price"
+            required
+          />
+        </div>
 
-      <div className="form-group">
-        <label className="text-muted">Category</label>
-        <select
-          onChange={handleChange("category")}
-          className="form-control"
-          value={category}
-          id="category"
-          required
-        >
-          <option value="">Please select</option>
-          {categories &&
-            categories.map((c, i) => (
-              <option key={i} value={c._id}>
-                {c.name}
-              </option>
-            ))}
-        </select>
-      </div>
+        <div className="form-group">
+          <label className="text-muted">Category</label>
+          <select
+            onChange={handleChange("category")}
+            className="form-control"
+            value={category}
+            id="category"
+            required
+          >
+            <option value="">Please select</option>
+            {categories &&
+              categories.map((c, i) => (
+                <option key={i} value={c._id}>
+                  {c.name}
+                </option>
+              ))}
+          </select>
+        </div>
 
-      <div className="form-group">
-        <label className="text-muted">Quantity</label>
-        <input
-          onChange={handleChange("quantity")}
-          type="number"
-          className="form-control"
-          value={quantity}
-          id="quantity"
-          required
-        />
-      </div>
+        <div className="form-group">
+          <label className="text-muted">Quantity</label>
+          <input
+            onChange={handleChange("quantity")}
+            type="number"
+            className="form-control"
+            value={quantity}
+            id="quantity"
+            required
+          />
+        </div>
 
-      <button className="btn btn-primary">Create Product</button>
-    </form>
+        <button className="btn btn-primary btn-block">Create Product</button>
+      </form>
+      <Link className="btn btn-secondary btn-block text-white" to="/admin/dashboard">
+        Back To Dashboard
+      </Link>
+    </>
   );
 
   const showError = () => (
