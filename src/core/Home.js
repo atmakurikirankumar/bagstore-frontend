@@ -36,8 +36,8 @@ const Home = () => {
 
   return (
     <Layout
-      title="Sri Padamavati Enterprises"
-      description="Leading store in Vijayawada"
+      title="Sri Padmavati Enterprises"
+      description="Leading Bags Wholesale/Retail store in Vijayawada"
       className="container-fluid"
     >
       <Search />
