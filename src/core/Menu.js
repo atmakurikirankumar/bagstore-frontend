@@ -14,9 +14,13 @@ const isActive = (history, path) => {
 const Menu = ({ history }) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-      <a className="navbar-brand" href="#">
-        AKK Enterprises
-      </a>
+      <Link className="navbar-brand" to="/">
+        <span>
+          <i class="fas fa-shopping-bag"></i>
+        </span>
+        {"  "}
+        SPE
+      </Link>
       <button
         className="navbar-toggler"
         type="button"
