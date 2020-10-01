@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Layout from "./Layout";
 import { getProductById, listRelated } from "./apiCore";
 import Card from "./Card";
+import Spinner from "./Spinner";
 
 const Product = (props) => {
   const [product, setProduct] = useState({});
@@ -17,15 +18,18 @@ const Product = (props) => {
       } else {
         setProduct(data);
         setLoading(false);
-        listRelated(data._id).then((data) => {
-          if (data.error) {
-            setError(data.error);
-            setLoading(false);
-          } else {
-            setRelatedProduct(data);
-            setLoading(false);
-          }
-        });
+      }
+    });
+  };
+
+  const loadRelatedProducts = (productId) => {
+    listRelated(productId).then((data) => {
+      if (data.error) {
+        setError(data.error);
+        setLoading(false);
+      } else {
+        setRelatedProduct(data);
+        setLoading(false);
       }
     });
   };
@@ -33,7 +37,10 @@ const Product = (props) => {
   useEffect(() => {
     const productId = props.match.params.productId;
     loadSingleProduct(productId);
+    loadRelatedProducts(productId);
   }, [props]);
+
+  const showLoading = () => loading && <Spinner />;
 
   return (
     <Layout
@@ -43,6 +50,7 @@ const Product = (props) => {
     >
       <div className="row">
         <div className="col-5">
+          {showLoading()}
           {!loading && (
             <Card product={product} showViewProductButton={false} showFullDescription={true} />
           )}
@@ -50,6 +58,7 @@ const Product = (props) => {
 
         <div className="col-4">
           <h4>Related products</h4>
+          {showLoading()}
           {relatedProduct.map((p, i) => (
             <div className="mb-3" key={i}>
               <Card product={p} />
