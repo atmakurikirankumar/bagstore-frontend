@@ -88,8 +88,13 @@ const Signup = () => {
   );
 
   const showError = () => (
-    <div className="alert alert-danger" style={{ display: error ? "" : "none" }}>
-      {error && error.split("|").map((e, i) => <h6 key={i}>{e}</h6>)}
+    <div style={{ display: error ? "" : "none" }}>
+      {error &&
+        error.split("|").map((e, i) => (
+          <h3 className="text-danger" key={i}>
+            {e}
+          </h3>
+        ))}
     </div>
   );
 

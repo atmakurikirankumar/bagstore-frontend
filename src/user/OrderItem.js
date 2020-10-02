@@ -79,17 +79,7 @@ const OrderItem = (props) => {
     <Layout title="Order Details page" description="Product details" className="container">
       {!loading && (
         <div className="card">
-          <div
-            className="card-header mb-3"
-            style={{
-              backgroundColor: "grey",
-              color: "white",
-              fontSize: "20px",
-              borderRadius: "10px",
-            }}
-          >
-            Order# {order._id}
-          </div>
+          <div className="card-header mb-3 jumbo">Order# {order._id}</div>
           <div className="card-body" style={{ padding: "2px" }}>
             <p>Current Status: {order.status}</p>
             {showStatusUpdate && showStatus(order)}
@@ -99,21 +89,13 @@ const OrderItem = (props) => {
             <p>Number of Products: {order.products.length}</p>
             {order.products.map((product, i) => (
               <div className="card" key={i}>
-                <div
-                  className="card-header mb-3"
-                  style={{
-                    backgroundColor: "black",
-                    color: "white",
-                    fontSize: "20px",
-                    borderRadius: "10px",
-                  }}
-                >
+                <div className="card-header mb-3 bg-primary text-white">
                   Product Id: {product._id}
                 </div>
                 <div className="row">
                   <div className="col-5">
                     <ShowImage item={product} url="product" />
-                    <h3 className="text-primary ml-4">{product.name}</h3>
+                    <h2 className="ml-4">{product.name}</h2>
                   </div>
                   <div className="col-7">
                     <p>Price: {product.price}</p>
@@ -127,7 +109,7 @@ const OrderItem = (props) => {
         </div>
       )}
       <Link
-        className="btn btn-primary btn-sm btn-block mt-3"
+        className="btn btn-secondary text-white btn-sm btn-block mt-3"
         to={showStatusUpdate ? "/admin/dashboard" : "/user/dashboard"}
       >
         Back To Dashboard

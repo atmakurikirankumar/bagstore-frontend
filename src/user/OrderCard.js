@@ -23,17 +23,7 @@ const OrderCard = ({ order, showViewOrderButton = true, showStatusUpdate = false
 
   return (
     <div className="card">
-      <div
-        className="card-header"
-        style={{
-          backgroundColor: "grey",
-          color: "white",
-          fontSize: "20px",
-          borderRadius: "10px",
-        }}
-      >
-        Order # {order._id}
-      </div>
+      <div className="card-header jumbo">Order # {order._id}</div>
       <div
         className="card-body"
         style={{

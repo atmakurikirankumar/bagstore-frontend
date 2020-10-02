@@ -74,8 +74,13 @@ const Signin = (props) => {
   );
 
   const showError = () => (
-    <div className="alert alert-danger" style={{ display: error ? "" : "none" }}>
-      {error && error.split("|").map((e, i) => <h6 key={i}>{e}</h6>)}
+    <div style={{ display: error ? "" : "none" }}>
+      {error &&
+        error.split("|").map((e, i) => (
+          <h3 className="text-danger" key={i}>
+            {e}
+          </h3>
+        ))}
     </div>
   );
 
@@ -103,7 +108,7 @@ const Signin = (props) => {
   return (
     <Layout
       title="Signin"
-      description="Signin to Node React E-commerce App"
+      description="Signin to View your purchase history"
       className="container col-md-5 offset-md-2"
     >
       {showLoading()}

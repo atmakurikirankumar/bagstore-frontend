@@ -36,18 +36,20 @@ const Cart = () => {
   };
 
   const noItemsMessage = () => (
-    <div className="product-img">
-      <img
-        src={empty_cart}
-        alt="Empty Cart"
-        className="mb-3"
-        style={{ maxHeight: "100%", maxWidth: "100%" }}
-      />
-      <div className="alert alert-danger">
-        Looks like you have no items in your shopping car. Click <Link to="/shop">HERE</Link> to
-        continue shopping
+    <>
+      <div className="product-img">
+        <img
+          src={empty_cart}
+          alt="Empty Cart"
+          className="mb-3"
+          style={{ maxHeight: "100%", maxWidth: "100%" }}
+        />
       </div>
-    </div>
+      <h5 className="text text-danger">
+        Looks like you have no items in your shopping cart. Please Click
+        <Link to="/shop"> HERE </Link> to continue shopping
+      </h5>
+    </>
   );
 
   return (
@@ -57,8 +59,8 @@ const Cart = () => {
       className="container-fluid"
     >
       <div className="row">
-        <div className="col-4">{items.length > 0 ? showItems(items) : noItemsMessage()}</div>
-        <div className="col-2"></div>
+        <div className="col-5">{items.length > 0 ? showItems(items) : noItemsMessage()}</div>
+
         {items.length > 0 && (
           <div className="col-5">
             <h2 className="mb-4">Order Summary</h2>

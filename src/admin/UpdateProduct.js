@@ -184,9 +184,9 @@ const UpdateProduct = ({ match }) => {
   );
 
   const showError = () => (
-    <div className="alert alert-danger" style={{ display: error ? "" : "none" }}>
+    <h3 className="text-danger" style={{ display: error ? "" : "none" }}>
       {error}
-    </div>
+    </h3>
   );
 
   const showSuccess = () => (

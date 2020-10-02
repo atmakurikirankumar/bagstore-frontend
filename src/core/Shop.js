@@ -100,23 +100,28 @@ const Shop = () => {
   };
 
   return (
-    <Layout
+    <div
       title="Shop a wide range of products of your choice"
       description="All varities of custom stylized bags for you"
       className="container-fluid"
     >
       <div className="row">
+        <div className="col-md-12">
+          <div className="jumbotron text-left" style={{ borderRadius: "20px" }}>
+            <h1>Navigate through a wide of our customized stylish bags of your choice </h1>
+          </div>
+        </div>
+      </div>
+
+      <div className="row">
         <div className="col-2">
           <h4
-            className="card"
+            className="card text-white text-center bg-primary jumbo"
             style={{
-              backgroundColor: "grey",
-              color: "white",
-              borderRadius: "10px",
-              textAlign: "center",
+              borderRadius: "50px",
             }}
           >
-            Filter by Categories
+            By Category
           </h4>
           <ul>
             <Checkbox
@@ -126,15 +131,12 @@ const Shop = () => {
           </ul>
 
           <h4
-            className="card"
+            className="card text-white text-center bg-primary jumbo"
             style={{
-              backgroundColor: "grey",
-              color: "white",
-              borderRadius: "10px",
-              textAlign: "center",
+              borderRadius: "50px",
             }}
           >
-            Filter by Price Range
+            By Price
           </h4>
           <div>
             <RadioBox
@@ -148,17 +150,6 @@ const Shop = () => {
           {showLoading()}
           {!loading && filteredResults && filteredResults.length > 0 && (
             <>
-              <h2
-                className="mb-4 card display-2"
-                style={{
-                  backgroundColor: "grey",
-                  color: "white",
-                  textAlign: "center",
-                  borderRadius: "20px",
-                }}
-              >
-                Products
-              </h2>
               <div className="row">
                 {filteredResults.map((product, i) => (
                   <div key={i} className="col-3 mb-3">
@@ -180,7 +171,7 @@ const Shop = () => {
           {loadMoreButton()}
         </div>
       </div>
-    </Layout>
+    </div>
   );
 };
 

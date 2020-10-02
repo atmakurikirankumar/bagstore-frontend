@@ -48,13 +48,8 @@ const Card = ({
     );
   };
 
-  const showStock = (quantity) => {
-    return quantity > 0 ? (
-      <span className="badge badge-success">In Stock </span>
-    ) : (
-      <span className="badge badge-danger">Out of Stock </span>
-    );
-  };
+  const showStock = (quantity) =>
+    quantity && quantity <= 0 && <span className="badge badge-primary">Sold Out</span>;
 
   const handleChange = (productId) => (event) => {
     setRun(!run); // run useEffect in parent Cart
@@ -101,13 +96,9 @@ const Card = ({
   return (
     <div className="card">
       <div
-        className="card-header"
+        className="card-header bg-primary text-left text-white jumbo"
         style={{
-          backgroundColor: "grey",
-          color: "white",
-          fontSize: "20px",
-          textAlign: "center",
-          borderRadius: "10px",
+          borderRadius: "20px",
         }}
       >
         {product.name} <span style={{ float: "right" }}>{showStock(product.quantity)}</span>

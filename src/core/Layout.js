@@ -1,11 +1,9 @@
 import React from "react";
-import Menu from "./Menu";
 import "../styles.css";
 
 const Layout = ({ title = "Title", description = "Description", children, className }) => {
   return (
     <div>
-      <Menu />
       <div className="jumbotron" style={{ height: "20px" }}>
         <h2>{title}</h2>
         <p className="lead">{description}</p>

@@ -29,15 +29,7 @@ const Dashboard = () => {
   const userLinks = () => {
     return (
       <div className="card">
-        <h4
-          className="card-header"
-          style={{
-            backgroundColor: "#3379FF",
-            color: "white",
-          }}
-        >
-          User Links
-        </h4>
+        <h4 className="card-header jumbo text-center">User Links</h4>
         <ul className="list-group">
           <li className="list-group-item">
             <Link className="nav-link" to="/cart">
@@ -57,15 +49,7 @@ const Dashboard = () => {
   const userInfo = () => {
     return (
       <div className="card mb-4">
-        <h3
-          className="card-header"
-          style={{
-            backgroundColor: "#3379FF",
-            color: "white",
-          }}
-        >
-          User Information
-        </h3>
+        <h3 className="card-header jumbo text-center">User Information</h3>
         <ul className="list-group">
           <li className="list-group-item"> {name} </li>
           <li className="list-group-item"> {email} </li>
@@ -78,15 +62,7 @@ const Dashboard = () => {
   const purchaseHistory = (history) => {
     return (
       <>
-        <h2
-          className="mb-4 card"
-          style={{
-            backgroundColor: "#3379FF",
-            color: "white",
-          }}
-        >
-          Purchase History
-        </h2>
+        <h2 className="mb-4 card jumbo text-center">Purchase History</h2>
         {history && history.length > 0 ? (
           <div className="row">
             {history.map((order, i) => (

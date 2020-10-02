@@ -53,7 +53,7 @@ const Home = () => {
       {!loading && productsByArrival && productsByArrival.length > 0 && (
         <>
           <div className="mb-4">
-            <h3 className="display-2"> New Arrivals </h3>
+            <h1 className="card bg-primary text-center text-white">What's New</h1>
           </div>
           <div className="row">
             {productsByArrival.map((product, i) => (
@@ -68,8 +68,8 @@ const Home = () => {
 
       {!loading && productsBySell && productsBySell.length > 0 && (
         <>
-          <div className="mb-4">
-            <h3 className="display-2"> Best Sellers </h3>
+          <div className="mb-4 ">
+            <h1 className="card bg-primary text-center text-white">MOVING FAST</h1>
           </div>
           <div className="row">
             {productsBySell.map((product, i) => (

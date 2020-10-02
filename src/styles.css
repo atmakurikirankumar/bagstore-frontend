@@ -14,6 +14,7 @@
   padding: 0.2rem;
   border: #ccc 1px dotted;
   margin: 0.2rem 0;
+  border-radius: 20px;
 }
 
 .p {
@@ -25,8 +26,6 @@
   padding: 0.2rem 0.7rem;
   text-align: center;
   margin: 0.4rem;
-  color: white;
-  border-radius: 5px;
 }
 
 body {
@@ -117,6 +116,16 @@ button {
 
 .jumbotron {
   height: 180px;
+  color: #fff;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  -webkit-animation: Gradient 15s ease infinite;
+  -moz-animation: Gradient 15s ease infinite;
+  animation: Gradient 15s ease infinite;
+}
+
+.jumbo {
+  height: 50px;
   color: #fff;
   background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
   background-size: 400% 400%;

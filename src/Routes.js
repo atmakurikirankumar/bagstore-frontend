@@ -17,9 +17,12 @@ import Orders from "./admin/Orders";
 import OrderItem from "./user/OrderItem";
 import ManageProducts from "./admin/ManageProducts";
 import UpdateProduct from "./admin/UpdateProduct";
+import Menu from "./core/Menu";
+
 const Routes = () => {
   return (
     <Router>
+      <Menu />
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/signup" exact component={Signup} />
